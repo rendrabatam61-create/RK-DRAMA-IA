@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0d11">
+<title>FRAME — Studio Drama Gratis</title>
+<style>
+:root{--bg:#0b0d11;--panel:#151a22;--line:#2a3442;--txt:#f4f1eb;--muted:#a0a9b6;--gold:#d8b477;--gold2:#f0d5a5}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.6 system-ui,-apple-system,Segoe UI,Arial,sans-serif}.wrap{max-width:980px;margin:auto;padding:18px}.top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:8px 0 16px}.brand{display:flex;align-items:center;gap:10px}.mark{width:38px;height:38px;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold);font-weight:900;font-size:20px}.brand b{letter-spacing:3px}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:1.3px}.pill{font-size:10px;color:#c6d9c9;border:1px solid #3a5a45;background:#17241c;border-radius:30px;padding:5px 9px}.hero{margin:22px 0 16px;padding:24px;border:1px solid var(--line);border-radius:13px;background:radial-gradient(ellipse at 90% 0,#5b482d55,transparent 45%),linear-gradient(120deg,#1b2029,#11151c)}.eyebrow{font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:800}.hero h1{font:36px Georgia,serif;margin:8px 0}.hero p{color:var(--muted);margin:0;max-width:640px}.inputbox,.panel{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:17px}.inputbox label{display:block;font-size:12px;margin-bottom:7px;color:#cbd0d7}.entry{display:flex;gap:8px}.entry input{flex:1;min-width:0;background:#0d1118;border:1px solid var(--line);border-radius:8px;padding:12px;color:white;font-size:15px}.btn{border:1px solid var(--line);border-radius:8px;padding:10px 13px;background:#202733;color:var(--txt);font-weight:700}.btn.primary{background:var(--gold);color:#17130d;border-color:var(--gold)}.hint{color:var(--muted);font-size:10px;margin:8px 0 0}.tabs{display:flex;gap:7px;overflow:auto;margin:16px 0 10px}.tabs button{white-space:nowrap;background:#141922;color:var(--muted);font-size:11px}.tabs button.active{color:var(--gold2);border-color:#806b48;background:#282318}.view{display:none}.view.active{display:block}.panel h2{font-size:16px;margin:0 0 12px}.panel h3{font-size:13px;margin:15px 0 5px}.panel p{color:#d7dce3;margin:5px 0}.card{padding:12px 0;border-bottom:1px solid var(--line)}.card:last-child{border:0}.tag{display:inline-block;color:var(--gold2);border:1px solid #685538;border-radius:30px;padding:3px 8px;font-size:10px}.muted{color:var(--muted)!important;font-size:11px}.storyboard{width:100%;display:block;border:1px solid var(--line);border-radius:8px;margin:10px 0}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.prompt{white-space:pre-wrap;overflow-wrap:anywhere;background:#0c1118;border:1px solid var(--line);padding:13px;border-radius:8px;font-size:12px;color:#d5dbe4}.empty{text-align:center;padding:30px;color:var(--muted);border:1px dashed var(--line);border-radius:9px}.notice{margin-top:12px;color:#e0c999;background:#282318;border:1px solid #5b4a30;border-radius:8px;padding:10px;font-size:11px}.toast{position:fixed;bottom:18px;left:50%;transform:translate(-50%,12px);opacity:0;background:#203027;border:1px solid #426d54;color:#c7e8d2;padding:9px 14px;border-radius:8px;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}.foot{text-align:center;color:#657080;font-size:10px;padding:22px}@media(max-width:620px){.wrap{padding:13px}.hero{padding:19px}.hero h1{font-size:29px}.entry{display:grid}.entry button{width:100%}.top .pill{font-size:9px}.panel{padding:14px}}
+</style>
+</head>
+<body><div class="wrap">
+<header class="top"><div class="brand"><div class="mark">F</div><div><b>FRAME</b><small>STUDIO DRAMA GRATIS</small></div></div><span class="pill">100% GRATIS · TANPA API</span></header>
+<section class="hero"><div class="eyebrow">Dari judul menjadi rencana drama</div><h1>Kamu cukup tulis judulnya.</h1><p>FRAME akan menyusun ide cerita, karakter, lima episode, storyboard bergambar, dan prompt visual yang bisa langsung disalin. Semua diproses di browser, tanpa biaya API.</p></section>
+<section class="inputbox"><label for="title">Judul drama</label><div class="entry"><input id="title" maxlength="100" placeholder="Contoh: Rumah Nomor 13"><button class="btn primary" id="make">✦ Buat Drama</button></div><p class="hint">Genre, karakter, alur, dan adegan akan ditentukan otomatis dari judul.</p></section>
+<div class="notice">Versi gratis ini memakai mesin penyusun cerita lokal berbasis pola kreatif, bukan AI generatif daring. Storyboard dibuat sebagai ilustrasi panel otomatis, bukan gambar fotorealistik AI.</div>
+<section id="result" hidden>
+<nav class="tabs" id="tabs"><button class="btn active" data-tab="story">Alur Cerita</button><button class="btn" data-tab="cast">Karakter</button><button class="btn" data-tab="episodes">Episode</button><button class="btn" data-tab="board">Storyboard</button><button class="btn" data-tab="prompt">Prompt Siap Salin</button></nav>
+<div class="panel view active" id="v-story"></div><div class="panel view" id="v-cast"></div><div class="panel view" id="v-episodes"></div><div class="panel view" id="v-board"></div><div class="panel view" id="v-prompt"></div>
+</section>
+<div class="foot">FRAME · Versi gratis · Cerita, storyboard, dan prompt disimpan di perangkatmu.</div>
+</div><div class="toast" id="toast">Berhasil</div>
+<script>
+let data=null;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(s){$('toast').textContent=s;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),1600)}
+function hash(s){let h=2166136261;for(let c of s)h=Math.imul(h^c.charCodeAt(0),16777619);return h>>>0}
+function build(title){
+ let h=hash(title.toLowerCase()),pick=a=>a[h%a.length],names=pick([['Nara','Dimas','Bu Ratih','Arman'],['Maya','Raka','Sinta','Adrian'],['Alya','Bima','Nadia','Darma'],['Laras','Reno','Ibu Sari','Vega']]);
+ let genre=pick(['Horor dan Misteri','Thriller Psikologis','Drama Misteri']);
+ let place=pick(['rumah tua di ujung desa','apartemen lantai tiga belas','penginapan dekat hutan','kota kecil di tepi laut','sekolah lama yang sudah ditutup']);
+ let mystery=pick(['rekaman suara yang memprediksi kejadian berikutnya','serangkaian surat tanpa nama','pintu yang selalu terbuka pada pukul 02.13','foto lama yang berubah setiap malam']);
+ let hero=names[0],ally=names[1],keeper=names[2],ant=names[3];
+ let logline=`Di ${place}, ${hero} menemukan ${mystery}. Bersama ${ally}, ia berusaha mencari sumbernya sebelum rahasia lama itu menghancurkan orang-orang terdekatnya.`;
+ let synopsis=`${hero} kembali ke ${place} setelah menerima sebuah petunjuk yang tidak masuk akal. Di sana, ia menemukan ${mystery}. Awalnya ${hero} mengira semua itu hanya kebetulan, tetapi kejadian-kejadian berikutnya membuktikan bahwa ada seseorang yang mengatur semuanya.\n\n${ally} membantu menyelidiki petunjuk, sementara ${keeper} tampak mengetahui lebih banyak daripada yang ia katakan. Jejak demi jejak mengarah kepada ${ant}, sosok yang memiliki hubungan dengan peristiwa lama di tempat itu.\n\nKetika bukti mulai terkumpul, kepercayaan di antara mereka retak. ${hero} harus memilih antara menyelamatkan orang yang disayangi atau membuka kebenaran yang selama ini dikubur. Pada akhirnya, semua petunjuk terhubung dan rahasia utama terungkap dengan konsekuensi yang tidak bisa ditarik kembali.`;
+ let chars=[
+ {name:hero,role:'Tokoh utama',look:'Wajah oval, rambut hitam sebahu, jaket gelap dan tas selempang cokelat.',person:'Penasaran, berani, tetapi sering bertindak sebelum berpikir.',goal:'Mengungkap asal misteri dan melindungi orang terdekat.',arc:'Belajar mempercayai orang lain dan bertanggung jawab atas pilihannya.'},
+ {name:ally,role:'Sahabat',look:'Rambut hitam pendek, kemeja abu-abu, jam tangan kulit.',person:'Rasional, setia, dan berhati-hati.',goal:'Membantu penyelidikan tanpa membahayakan kelompok.',arc:'Berani menghadapi fakta yang selama ini dihindari.'},
+ {name:keeper,role:'Pemegang rahasia',look:'Usia matang, rambut disanggul, cardigan cokelat dan ekspresi tenang.',person:'Lembut tetapi tertutup.',goal:'Mencegah rahasia masa lalu terbuka.',arc:'Akhirnya mengakui kesalahan dan memberi petunjuk penting.'},
+ {name:ant,role:'Lawan utama',look:'Rambut hitam rapi, mantel gelap, tatapan tajam.',person:'Tenang, penuh perhitungan, dan manipulatif.',goal:'Menjaga rahasia agar tidak diketahui.',arc:'Motifnya terbongkar dan harus menghadapi akibat tindakannya.'}
+ ];
+ let episodeNames=['Petunjuk Pertama','Orang yang Mengetahui','Rahasia di Balik Dinding','Pengkhianatan','Kebenaran Terakhir'];
+ let eps=episodeNames.map((n,i)=>({n,title:n,open:[
+ `${hero} tiba di ${place} dan menemukan petunjuk pertama tentang ${mystery}.`,
+ `${hero} dan ${ally} mulai menyusun hubungan antara petunjuk dan kejadian lama.`,
+ `${seeker(keeper)} memberikan informasi yang justru menimbulkan kecurigaan baru.`,
+ `Sebuah bukti penting hilang dan kelompok mulai saling mencurigai.`,
+ `${hero} kembali ke lokasi awal dengan semua bukti yang berhasil dikumpulkan.`
+ ][i],dev:[
+ `${ally} menemukan detail kecil yang sebelumnya terlewat.`,
+ `${hero} mengetahui bahwa ${keeper} pernah berada di lokasi saat kejadian lama.`,
+ `Mereka menemukan hubungan antara ${ant} dan rahasia tempat tersebut.`,
+ `${hero} menyadari bahwa salah satu petunjuk sengaja ditanam untuk menyesatkan.`,
+ `Semua petunjuk disusun ulang dan motif sebenarnya mulai terlihat.`
+ ][i],turn:[
+ `Petunjuk itu menyebut nama seseorang yang masih berada di sekitar mereka.`,
+ `${keeper} mengakui bahwa ia menyembunyikan satu bagian cerita.`,
+ `Bukti mengarah kepada orang yang paling dipercaya oleh ${hero}.`,
+ `${ally} ternyata mengetahui sebagian rencana sejak awal, tetapi punya alasan.`,
+ `${ant} muncul dan mengungkap alasan di balik tindakannya.`
+ ][i],end:[
+ `Dari balik pintu, terdengar suara yang memanggil nama ${hero}.`,
+ `Sebuah foto menunjukkan bahwa kejadian itu pernah terulang.`,
+ `Lampu padam dan benda bukti berpindah tempat.`,
+ `${hero} menerima pesan: "Jangan datang sendirian."`,
+ `Konflik utama selesai, tetapi satu rekaman baru menyala dengan sendirinya.`
+ ][i]}));
+ let scenes=[
+ {ep:1,loc:`Eksterior ${place} — malam`,act:`${hero} berdiri di depan bangunan, memperhatikan jendela lantai atas yang menyala sesaat.`,emotion:'penasaran dan waspada'},
+ {ep:1,loc:'Interior lorong — malam',act:`${hero} menemukan petunjuk di lantai. ${ally} datang dan meminta penjelasan.`,emotion:'tegang'},
+ {ep:2,loc:'Ruang arsip — sore',act:`${keeper} membuka kotak lama dan menunjukkan foto yang sebagian terbakar.`,emotion:'curiga'},
+ {ep:3,loc:'Kamar terkunci — malam',act:`Pintu terbuka perlahan. Siluet seseorang terlihat di ujung ruangan.`,emotion:'takut'},
+ {ep:4,loc:'Tangga belakang — malam',act:`${hero} dan ${ally} berdebat setelah menemukan bukti yang saling bertentangan.`,emotion:'marah dan kecewa'},
+ {ep:5,loc:`Ruang utama ${place} — dini hari`,act:`${hero} menghadapi ${ant} dan meletakkan seluruh bukti di atas meja.`,emotion:'tegas dan emosional'}
+ ];
+ return {title,genre,place,logline,synopsis,chars,eps,scenes,master:`Cinematic realistic drama, consistent character design across every shot. Main character ${hero}: oval face, shoulder-length black hair, dark jacket, brown crossbody bag. Supporting character ${ally}: short black hair, grey shirt, leather watch. Mysterious older character ${keeper}: mature face, tied-back hair, brown cardigan. Antagonist ${ant}: neat black hair, dark coat. Setting: ${place}. Natural realistic lighting, grounded human anatomy, expressive but subtle acting, coherent film color grading, detailed production design. Keep each character's face, hairstyle, clothing and proportions identical in every scene. No text, no logo, no watermark.`};
+}
+function seeker(x){return x}
+function makeBoard(d){
+ const W=1200,H=800,pad=28,gap=18,cw=(W-pad*2-gap*2)/3,ch=(H-pad*2-gap)/2;
+ let colors=['#25313b','#3a302a','#29343b','#39302b','#29333a','#44382d'];
+ let panels=d.scenes.map((s,i)=>{let x=pad+(i%3)*(cw+gap),y=pad+Math.floor(i/3)*(ch+gap),cx=x+cw/2,cy=y+ch*.52;
+ let bg=colors[i], glow=i%2?'#d6a86c':'#91a5b2';
+ let figure=`<ellipse cx="${cx}" cy="${cy+100}" rx="64" ry="18" fill="#111820" opacity=".65"/><path d="M${cx-38} ${cy+85} Q${cx-48} ${cy+20} ${cx-22} ${cy-3} L${cx+22} ${cy-3} Q${cx+48} ${cy+20} ${cx+38} ${cy+85}Z" fill="#171b22"/><circle cx="${cx}" cy="${cy-32}" r="27" fill="#c59c7b"/><path d="M${cx-27} ${cy-36} Q${cx-22} ${cy-72} ${cx+14} ${cy-60} Q${cx+34} ${cy-52} ${cx+25} ${cy-25} Q${cx+5} ${cy-47} ${cx-27} ${cy-36}" fill="#171719"/>`;
+ return `<g><rect x="${x}" y="${y}" width="${cw}" height="${ch}" rx="10" fill="${bg}" stroke="#d4b27a" stroke-width="2"/><path d="M${x+10} ${y+ch*.68} L${x+cw-10} ${y+ch*.68}" stroke="#b6a18a" opacity=".25"/><rect x="${x+22}" y="${y+25}" width="${cw-44}" height="${ch*.36}" fill="#121a22" opacity=".5"/><circle cx="${x+cw*.78}" cy="${y+ch*.25}" r="32" fill="${glow}" opacity=".18"/>${figure}<rect x="${x+14}" y="${y+ch-55}" width="${cw-28}" height="39" rx="5" fill="#090d12" opacity=".83"/><text x="${x+25}" y="${y+ch-30}" fill="#f2e7d4" font-size="15" font-family="Arial">ADEGAN ${i+1} · EP ${s.ep}</text><text x="${x+25}" y="${y+ch-12}" fill="#c7ced7" font-size="10" font-family="Arial">${esc(s.loc).slice(0,48)}</text></g>`;
+ }).join('');
+ let svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#0b1017"/><stop offset="1" stop-color="#171c23"/></linearGradient></defs><rect width="100%" height="100%" fill="url(#bg)"/>${panels}</svg>`;
+ return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+}
+function render(){
+ let title=$('title').value.trim();if(!title){toast('Isi judul drama dulu');return}
+ data=build(title);let d=data;
+ $('v-story').innerHTML=`<span class="tag">${esc(d.genre)}</span><h2 style="margin-top:10px">${esc(d.title)}</h2><h3>Premis</h3><p>${esc(d.logline)}</p><h3>Sinopsis</h3><p>${esc(d.synopsis).replace(/\n/g,'<br>')}</p><div class="actions"><button class="btn" onclick="downloadText()">Unduh cerita & episode</button></div>`;
+ $('v-cast').innerHTML='<h2>Karakter yang dibuat otomatis</h2>'+d.chars.map(c=>`<div class="card"><h3>${esc(c.name)} <span class="tag">${esc(c.role)}</span></h3><p><b>Penampilan:</b> ${esc(c.look)}</p><p><b>Kepribadian:</b> ${esc(c.person)}</p><p><b>Tujuan:</b> ${esc(c.goal)}</p><p><b>Perkembangan:</b> ${esc(c.arc)}</p></div>`).join('');
+ $('v-episodes').innerHTML='<h2>Lima episode</h2>'+d.eps.map((e,i)=>`<div class="card"><h3>Episode ${i+1} — ${esc(e.title)}</h3><p><b>Pembuka:</b> ${esc(e.open)}</p><p><b>Perkembangan:</b> ${esc(e.dev)}</p><p><b>Titik balik:</b> ${esc(e.turn)}</p><p><b>Akhir:</b> ${esc(e.end)}</p></div>`).join('');
+ let board=makeBoard(d);$('v-board').innerHTML=`<h2>Storyboard enam adegan</h2><p class="muted">Storyboard ilustrasi otomatis berdasarkan adegan penting dalam cerita. Tekan unduh untuk menyimpan gambarnya.</p><img id="boardimg" class="storyboard" src="${board}" alt="Storyboard ${esc(d.title)}"><div class="actions"><button class="btn primary" onclick="downloadBoard()">↓ Unduh storyboard</button></div><h3>Ringkasan adegan</h3>`+d.scenes.map((s,i)=>`<div class="card"><b>Adegan ${i+1} · Episode ${s.ep}</b><p>${esc(s.loc)}</p><p>${esc(s.act)}</p><p class="muted">Emosi: ${esc(s.emotion)}</p></div>`).join('');
+ $('v-prompt').innerHTML=`<h2>Prompt utama siap salin</h2><p class="muted">Salin satu prompt ini untuk menjaga tampilan karakter dan suasana saat membuat visual di layanan AI pilihanmu.</p><div class="prompt">${esc(d.master)}</div><div class="actions"><button class="btn primary" onclick="copyPrompt()">Salin Prompt</button></div>`;
+ $('result').hidden=false;switchTab('story');
+ localStorage.setItem('frame_free_last',JSON.stringify({title}));
+}
+function switchTab(t){document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('active',b.dataset.tab===t));document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id==='v-'+t))}
+$('make').addEventListener('click',render);$('title').addEventListener('keydown',e=>{if(e.key==='Enter')render()});
+$('tabs').addEventListener('click',e=>{let b=e.target.closest('button[data-tab]');if(b)switchTab(b.dataset.tab)});
+function copyPrompt(){if(!data)return;let t=data.master;if(navigator.clipboard?.writeText)navigator.clipboard.writeText(t).then(()=>toast('Prompt disalin')).catch(()=>fallback(t));else fallback(t)}
+function fallback(t){let x=document.createElement('textarea');x.value=t;document.body.append(x);x.select();document.execCommand('copy');x.remove();toast('Prompt disalin')}
+function downloadBoard(){let img=$('boardimg');if(!img)return;let canvas=document.createElement('canvas');canvas.width=1200;canvas.height=800;let ctx=canvas.getContext('2d');let picture=new Image();picture.onload=()=>{ctx.drawImage(picture,0,0,1200,800);canvas.toBlob(blob=>{let url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(data.title.replace(/[^a-z0-9]+/gi,'-').toLowerCase()||'frame')+'-storyboard.png';a.click();URL.revokeObjectURL(url);toast('Gambar storyboard PNG diunduh')},'image/png')};picture.src=img.src}
+function downloadText(){if(!data)return;let d=data,txt=`${d.title}\n${d.genre}\n\nPREMIS\n${d.logline}\n\nSINOPSIS\n${d.synopsis}\n\nKARAKTER\n${d.chars.map(c=>`${c.name} (${c.role})\n${c.look}\n${c.person}\nTujuan: ${c.goal}\nPerkembangan: ${c.arc}`).join('\n\n')}\n\nEPISODE\n${d.eps.map((e,i)=>`Episode ${i+1}: ${e.title}\nPembuka: ${e.open}\nPerkembangan: ${e.dev}\nTitik balik: ${e.turn}\nAkhir: ${e.end}`).join('\n\n')}\n\nPROMPT\n${d.master}`;let a=document.createElement('a'),u=URL.createObjectURL(new Blob([txt],{type:'text/plain;charset=utf-8'}));a.href=u;a.download=d.title.replace(/[^a-z0-9]+/gi,'-').toLowerCase()+'.txt';a.click();URL.revokeObjectURL(u)}
+try{let old=JSON.parse(localStorage.getItem('frame_free_last'));if(old?.title)$('title').value=old.title}catch(e){}
+</script></body></html>
